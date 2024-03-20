@@ -1,6 +1,13 @@
 {
-    "expenses": [
-      {
-      }
-    ]
+  "expenses": [
+    {
+      "id": "90f3"
+    },
+    {
+      "id": "14a6",
+      "title": "Test",
+      "description": "Mo Money Mo Problems",
+      "amount": "99"
+    }
+  ]
 }

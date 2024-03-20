@@ -5,6 +5,9 @@ import Index from './components/Index';
 import Home from './components/Home';
 import ExpensesForm from './components/ExpensesForm';
 import Expenses from './components/Expenses';
+import ExpensesIndex from './components/ExpensesIndex';
+import ExpensesPage from './components/ExpensesPage';
+
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -36,10 +39,12 @@ function App() {
     <Routes>
       <Route path="/" element={<Index />}>
         <Route index element={<Home />} />
-        <Route index element={<Expenses expenses={expenses} />} />
+        <Route path="expenses" element={<ExpensesIndex />}>
+            <Route index element={<Expenses expenses={expenses} />} />
             <Route path="new" element={<ExpensesForm addExpense={addExpense}  />}  />
+            <Route path=":expenseId" element={<ExpensesPage />} />
         </Route>
-        
+        </Route>
     </Routes>
   </Router>
   )
