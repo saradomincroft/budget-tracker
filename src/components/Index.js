@@ -16,10 +16,10 @@ export default function Index() {
                         </NavLink>
                     </Nav.Link>
                 </Nav>
-                {/* <Nav>    
+                <Nav>    
                     <Nav.Link>
-                        <NavLink to="/posts">
-                            Posts
+                        <NavLink to="/expenses">
+                            Add Expense
                         </NavLink>
                     </Nav.Link>
                 </Nav>
@@ -29,7 +29,7 @@ export default function Index() {
                             Login
                         </NavLink>
                     </Nav.Link>
-                </Nav> */}
+                </Nav>
             </Container>
         </Navbar>
       <Outlet />
