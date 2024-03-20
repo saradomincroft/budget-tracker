@@ -12,20 +12,26 @@ export default function ExpensesForm({ addExpense }) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        const newExpense = {
-            title: title,
-            description: description,
-            amount: amount
-        };
+        const amountFloat = parseFloat(amount);
 
-        addExpense(newExpense);
-        // clean up set as empty after
-        setTitle("");
-        setDescription("");
-        setAmount("");
+        if (!isNaN(amountFloat)) {
+            const newExpense = {
+                title: title,
+                description: description,
+                amount: amountFloat
+            }
+       
+            addExpense(newExpense);
+            // clean up set as empty after
+            setTitle("");
+            setDescription("");
+            setAmount("");
 
-        navigate('/expenses')
+            navigate('/expenses')
+    } else {
+        alert("Please enter a valid amount!")
     }
+}
 
     // wrong way can take you off the page
     // function handleBack() {

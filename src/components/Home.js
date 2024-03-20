@@ -3,6 +3,8 @@ export default function Home() {
         <>
         <h1>Budget Tracker</h1>
 
+        <h2>My Money:</h2>
+
         </>
     )
 
