@@ -31,8 +31,8 @@ export default function Expenses({ expenses, status, updateStatus, deleteExpense
   }
 
   return (
-    <div className="container">
-      <button type="button"><Link to="/expenses/new">Add New Expense</Link></button>
+    <div className="container text-center">
+      <button type="button" className="btn btn-light btn-sm m-3"><Link to="/expenses/new">Add New Expense</Link></button>
       {expenses.length > 0 ? (
         <div className="row">
           {expenses.map(expense => (

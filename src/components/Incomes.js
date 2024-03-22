@@ -16,8 +16,8 @@ export default function Income({ incomes, deleteIncome }) {
   }
 
   return (
-    <div className="container">
-      <button type="button"><Link to="/incomes/new">Add New Income</Link></button>
+    <div className="container text-center">
+      <button type="button" className="btn btn-light btn-sm m-3"><Link to="/incomes/new">Add New Income</Link></button>
       {incomes.length > 0 ? (
         <div className="row">
           {incomes.map(income => (

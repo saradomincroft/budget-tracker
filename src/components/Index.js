@@ -26,7 +26,7 @@ export default function Index() {
                 <Nav>    
                     <Nav.Link>
                         <NavLink to="/expenses">
-                            Expense
+                            Expenses
                         </NavLink>
                     </Nav.Link>
                 </Nav>

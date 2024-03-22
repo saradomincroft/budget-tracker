@@ -13,10 +13,10 @@ export default function ExpensesIndex() {
     }, [expenses]);
 
     return (
-        <>
+        <div className="text-center">
             <h1>Expenses</h1>
             <ExpensesTotal expenses={expenses} />
             <Outlet />
-        </>
+        </div>
     );
 }

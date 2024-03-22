@@ -66,7 +66,7 @@ export default function ExpensesForm({ addExpense }) {
                 <label>Amount:</label> <br/>
                 <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} /> <br/>
             
-                <button type="submit">Add New Expense</button>
+                <button type="submit" className="btn btn-success btn-sm m-4">Add New Expense</button>
             </form>
         </>
     );
