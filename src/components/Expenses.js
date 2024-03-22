@@ -39,7 +39,7 @@ export default function Expenses({ expenses, status, updateStatus, deleteExpense
             <div key={expense.id} className="col-lg-4 mb-4">
               <Card>
                 <Card.Body>
-                  <Card.Title>
+                  <Card.Title className="card-header">
                     <Link to={`/expenses/${expense.id}`}>{expense.title}</Link>
                   </Card.Title>
                   <Card.Text>

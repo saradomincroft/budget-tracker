@@ -14,8 +14,7 @@ export default function IncomeIndex() {
     
 
     return (
-        <div className="text-center">
-        <h1>Income</h1>
+        <div className="text-center">       
         <IncomesTotal incomes={incomes} />
         <Outlet />
         </div>

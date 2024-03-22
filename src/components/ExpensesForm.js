@@ -33,18 +33,10 @@ export default function ExpensesForm({ addExpense }) {
     }
 }
 
-    // wrong way can take you off the page
-    // function handleBack() {
-    //     navigate(-1);
-    // }
+    function handleBack() {
+        navigate("..");
+    }
 
-    // function handleBack() {
-    //     navigate("..");
-    // }
-
-    // function handleForward() {
-    //     navigate(1);
-    // }
 
     // useEffect( () => {
     //     if (!isLoggedIn) {
@@ -54,8 +46,7 @@ export default function ExpensesForm({ addExpense }) {
 
     return (
         <>
-            {/* <button type="button" onClick={handleBack}>Back</button>
-            <button type="button" onClick={handleForward}>Forward</button> */}
+            <button type="button" class="btn btn-warning" onClick={handleBack}>Back</button>
             <form onSubmit={handleSubmit}>
                 <label>Title:</label> <br/>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /> <br/>
