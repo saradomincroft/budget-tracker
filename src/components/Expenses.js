@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
-export default function Expenses({ expenses, status, updateStatus }) {
+export default function Expenses({ expenses, status, updateStatus, deleteExpense }) {
   function toggle(expense) {
     fetch('http://localhost:4000/expenses/' + expense.id, {
       method: "PATCH",
@@ -16,6 +16,17 @@ export default function Expenses({ expenses, status, updateStatus }) {
     .then(response => response.json())
     .then(json => {
       updateStatus(json);
+    });
+  }
+
+  function handleDelete(expenseId) {
+    fetch('http://localhost:4000/expenses/' + expenseId, {
+        method: "DELETE"
+    })
+    .then(response => {
+        if (response.ok) {
+            deleteExpense(expenseId);
+        }
     });
   }
 
@@ -51,6 +62,7 @@ export default function Expenses({ expenses, status, updateStatus }) {
                     </label>
                   </div>
                 </Card.Body>
+                <button type="button" className="btn btn-danger btn-sm" onClick={() => handleDelete(expense.id)}>Delete</button>
               </Card>
             </div>
           ))}
