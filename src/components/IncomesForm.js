@@ -57,13 +57,13 @@ export default function IncomesForm({ addIncome }) {
             {/* <button type="button" onClick={handleBack}>Back</button>
             <button type="button" onClick={handleForward}>Forward</button> */}
             <form onSubmit={handleSubmit}>
-                <label>Title</label> <br/>
+                <label>Title:</label> <br/>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /> <br/>
 
-                <label>Description</label> <br/>
+                <label>Description:</label> <br/>
                 <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} /> <br/>
 
-                <label>Amount</label> <br/>
+                <label>Amount:</label> <br/>
                 <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} /> <br/>
             
                 <button type="submit">Add New Income</button>

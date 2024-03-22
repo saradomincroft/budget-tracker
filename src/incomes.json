@@ -1,11 +1,28 @@
 {
   "incomes": [
-    {},
     {
-      "id": "dfcd",
-      "title": "11",
+      "id": "aaeb",
+      "title": "Income test 1",
+      "description": "Hello",
+      "amount": 11.99
+    },
+    {
+      "id": "9a5b",
+      "title": "111",
       "description": "111",
-      "amount": 1
+      "amount": 111
+    },
+    {
+      "id": "69f8",
+      "title": "11",
+      "description": "121",
+      "amount": 111
+    },
+    {
+      "id": "0a35",
+      "title": "Test 5",
+      "description": "11",
+      "amount": 11
     }
   ]
 }

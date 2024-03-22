@@ -54,7 +54,7 @@ function App() {
 
   // INCOMES
   useEffect(() => {
-    fetch('http://localhost:4001/incomeS')
+    fetch('http://localhost:4001/incomes')
       .then(response => response.json())
       .then(json => setIncomes(json))
       .then(() => setIsLoading(false));

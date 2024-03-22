@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function IncomesTotal({ incomes }) {
-    const totalAmount = incomes.reduce((total, incomes) => total + incomes.amount, 0);
+    const totalAmount = incomes.reduce((total, income) => total + income.amount, 0);
 
     return (
         <div>
