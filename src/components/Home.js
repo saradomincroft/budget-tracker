@@ -3,7 +3,9 @@ export default function Home() {
         <>
         <h1>Budget Tracker</h1>
 
-        <h2>My Money:</h2>
+        <h2>Income Total:</h2>
+        <h2>Expenses Total:</h2>
+        <h2>Balance Remaining:</h2>
 
         </>
     )
