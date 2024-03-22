@@ -1,23 +1,10 @@
 {
   "expenses": [
     {
-      "id": "24fe",
-      "title": "",
-      "description": "",
-      "amount": 11
-    },
-    {
-      "id": "6dec",
-      "title": "",
-      "description": "",
-      "amount": 111,
-      "status": true
-    },
-    {
-      "id": "04c4",
-      "title": "",
-      "description": "",
-      "amount": 111
+      "id": "4441",
+      "title": "Test 1",
+      "description": "A test",
+      "amount": 1000
     }
   ]
 }

@@ -18,6 +18,13 @@ export default function Index() {
                 </Nav>
                 <Nav>    
                     <Nav.Link>
+                        <NavLink to="/incomes">
+                            Add Income
+                        </NavLink>
+                    </Nav.Link>
+                </Nav>
+                <Nav>    
+                    <Nav.Link>
                         <NavLink to="/expenses">
                             Add Expense
                         </NavLink>
