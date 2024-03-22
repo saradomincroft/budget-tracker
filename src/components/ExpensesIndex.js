@@ -14,7 +14,7 @@ export default function ExpensesIndex() {
 
     return (
         <>
-            <h2>Expenses</h2>
+            <h1>Expenses</h1>
             <ExpensesTotal expenses={expenses} />
             <Outlet />
         </>

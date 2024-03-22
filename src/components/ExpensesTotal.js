@@ -5,8 +5,7 @@ export default function ExpensesTotal({ expenses }) {
 
     return (
         <div>
-            <h2>Total Expenses</h2>
-            <p>Total Amount: ${totalAmount}</p>
+            <h2>Total Expenses: ${totalAmount}</h2>
         </div>
     );
 }

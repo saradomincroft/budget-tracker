@@ -1,23 +1,8 @@
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
-export default function Income({ incomes, status, updateStatus, deleteIncome }) {
-  function toggle(income) {
-    fetch('http://localhost:4001/incomes/' + income.id, {
-      method: "PATCH",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        status: !status
-      })
-    })
-    .then(response => response.json())
-    .then(json => {
-      updateStatus(json);
-    });
-  }
+export default function Income({ incomes, deleteIncome }) {
+  
 
   function handleDelete(incomeId) {
     fetch('http://localhost:4001/incomes/' + incomeId, {
@@ -48,19 +33,7 @@ export default function Income({ incomes, status, updateStatus, deleteIncome }) 
                   <Card.Text>
                     Description: {income.description}
                   </Card.Text>
-                  <div className="form-check form-switch">
-                    <input
-                      type="checkbox"
-                      className="form-check-input"
-                      role="switch"
-                      id={"switch-" + income.id}
-                      checked={status}
-                      onChange={() => toggle(income)}
-                    />
-                    <label className="form-check-label" htmlFor={"switch-" + income.id}>
-                      {status ? "Paid" : "Outstanding"}
-                    </label>
-                  </div>
+                  
                 </Card.Body>
                 <button type="button" className="btn btn-danger btn-sm" onClick={() => handleDelete(income.id)}>Delete</button>
               </Card>
