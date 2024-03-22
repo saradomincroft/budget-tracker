@@ -22,7 +22,7 @@ export default function ExpensesForm({ addExpense }) {
             }
        
             addExpense(newExpense);
-            // clean up set as empty after
+            
             setTitle("");
             setDescription("");
             setAmount("");

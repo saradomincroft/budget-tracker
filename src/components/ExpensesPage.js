@@ -12,6 +12,7 @@ export default function ExpensesPage() {
         .then(json => setExpense(json));
     }, []);
 
+    
     return (
         <>
             {

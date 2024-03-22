@@ -5,6 +5,12 @@
       "title": "Test 1",
       "description": "A test",
       "amount": 1000
+    },
+    {
+      "id": "0bdd",
+      "title": "Tst 2",
+      "description": "waaa",
+      "amount": 45.9
     }
   ]
 }
