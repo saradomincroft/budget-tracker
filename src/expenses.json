@@ -1,19 +1,39 @@
 {
   "expenses": [
     {
-      "id": "90f3"
+      "id": "90f3",
+      "status": true
     },
     {
       "id": "14a6",
       "title": "Test",
       "description": "Mo Money Mo Problems",
-      "amount": "99"
+      "amount": "99",
+      "status": true
     },
     {
       "id": "f27d",
       "title": "De",
       "description": "123",
       "amount": 1
+    },
+    {
+      "id": "24fe",
+      "title": "",
+      "description": "",
+      "amount": 11
+    },
+    {
+      "id": "6dec",
+      "title": "",
+      "description": "",
+      "amount": 111
+    },
+    {
+      "id": "04c4",
+      "title": "",
+      "description": "",
+      "amount": 111
     }
   ]
 }

@@ -11,6 +11,9 @@ import ExpensesPage from './components/ExpensesPage';
 
 function App() {
   const [expenses, setExpenses] = useState([]);
+  const [notifMsg, setNotifMsg] = useState('')
+  const [notifColor, setNotifColor] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect( () => {
     fetch('http://localhost:4000/expenses')
