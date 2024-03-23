@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 export default function Expenses({ expenses, status, updateStatus, deleteExpense }) {
   function toggle(expense) {
     fetch('http://localhost:4000/expenses/' + expense.id, {
-      method: "PATCH",
+      method: "POST",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"

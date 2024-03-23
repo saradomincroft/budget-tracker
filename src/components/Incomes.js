@@ -24,7 +24,7 @@ export default function Income({ incomes, deleteIncome }) {
             <div key={income.id} className="col-lg-4 mb-4">
               <Card>
                 <Card.Body>
-                  <Card.Title>
+                  <Card.Title className="card-header">
                     <Link to={`/incomes/${income.id}`}>{income.title}</Link>
                   </Card.Title>
                   <Card.Text>

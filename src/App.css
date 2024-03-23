@@ -2,7 +2,19 @@
   text-align: center;
 }
 
+.background-color {
+  background-color: rgb(64, 61, 61);
+  min-height: 100vh;
+  color: white;
+}
 
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: lightgray;
+}
 
 .App-logo {
   height: 40vmin;

@@ -14,7 +14,7 @@ export default function ExpensesPage() {
 
     
     return (
-        <>
+        <div className='container'>
             {
             expense 
             ? 
@@ -27,7 +27,7 @@ export default function ExpensesPage() {
              : 
             <p>No expenses logged!</p>
             }
-        </>
+        </div>
     )
 
 }

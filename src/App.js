@@ -85,6 +85,7 @@ function App() {
   }
 
   return (
+    <div className="background-color">
     <Router>
       <Routes>
         <Route path="/" element={<Index />}>
@@ -102,6 +103,7 @@ function App() {
         </Route>
       </Routes>
     </Router>
+    </div>
   );
 }
 

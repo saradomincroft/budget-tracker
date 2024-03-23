@@ -14,9 +14,7 @@ export default function ExpensesIndex() {
 
     return (
         <div className="text-center">
-            <ExpensesTotal expenses={expenses} />
-            
-
+            <h2>Total Expenses: $<ExpensesTotal expenses={expenses} /></h2>
             <Outlet />
         </div>
     );
