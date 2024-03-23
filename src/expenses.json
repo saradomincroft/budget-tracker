@@ -1,13 +1,6 @@
 {
   "expenses": [
     {
-      "id": "4441",
-      "title": "Test 1",
-      "description": "A test",
-      "amount": 1000,
-      "status": true
-    },
-    {
       "id": "0bdd",
       "title": "Tst 2",
       "description": "waaa",

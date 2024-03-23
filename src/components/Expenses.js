@@ -1,38 +1,43 @@
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
+import { useState } from 'react';
 
-export default function Expenses({ expenses, status, updateStatus, deleteExpense }) {
+export default function Expenses({ expenses, updateStatus, deleteExpense }) {
   function toggle(expense) {
-    fetch('http://localhost:4000/expenses/' + expense.id, {
-      method: "POST",
+    fetch(`http://localhost:4000/expenses/${expense.id}`, {
+      method: 'POST',
       headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        status: !status
+        status: !expense.status
       })
     })
     .then(response => response.json())
     .then(json => {
       updateStatus(json);
-    });
+    })
+    .catch(error => console.error('Error toggling expense status:', error));
   }
 
   function handleDelete(expenseId) {
-    fetch('http://localhost:4000/expenses/' + expenseId, {
-        method: "DELETE"
+    fetch(`http://localhost:4000/expenses/${expenseId}`, {
+      method: 'DELETE'
     })
     .then(response => {
-        if (response.ok) {
-            deleteExpense(expenseId);
-        }
-    });
+      if (response.ok) {
+        deleteExpense(expenseId);
+      }
+    })
+    .catch(error => console.error('Error deleting expense:', error));
   }
 
   return (
     <div className="container text-center">
-      <button type="button" className="btn btn-light btn-sm m-3"><Link to="/expenses/new">Add New Expense</Link></button>
+      <button type="button" className="btn btn-light btn-sm m-3">
+        <Link to="/expenses/new">Add New Expense</Link>
+      </button>
       {expenses.length > 0 ? (
         <div className="row">
           {expenses.map(expense => (
@@ -54,15 +59,21 @@ export default function Expenses({ expenses, status, updateStatus, deleteExpense
                       className="form-check-input"
                       role="switch"
                       id={"switch-" + expense.id}
-                      checked={status}
+                      checked={expense.status}
                       onChange={() => toggle(expense)}
                     />
                     <label className="form-check-label" htmlFor={"switch-" + expense.id}>
-                      {status ? "Paid" : "Outstanding"}
+                      {expense.status ? "Paid" : "Outstanding"}
                     </label>
                   </div>
                 </Card.Body>
-                <button type="button" className="btn btn-danger btn-sm" onClick={() => handleDelete(expense.id)}>Delete</button>
+                <button
+                  type="button"
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleDelete(expense.id)}
+                >
+                  Delete
+                </button>
               </Card>
             </div>
           ))}
