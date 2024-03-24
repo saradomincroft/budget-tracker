@@ -16,25 +16,25 @@ export default function Incomes() {
       .then(() => setIsLoading(false));
   }, []);
 
-  function addIncome(incomeTitle) {
-    fetch('http://localhost:4001/incomes', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: incomeTitle
+  // function addIncome(incomeTitle) {
+  //   fetch('http://localhost:4001/incomes', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       title: incomeTitle
 
-    })
-  })
-      .then(response => response.json())
-      .then(json => {
-        setIncomes( (prev) => [json, ...prev]);
-        // setNotifMsg('A new income is successfully added!');
-        // setNotifColor('success');
-      })
-  }
+  //   })
+  // })
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       setIncomes( (prev) => [json, ...prev]);
+  //       // setNotifMsg('A new income is successfully added!');
+  //       // setNotifColor('success');
+  //     })
+  // }
 
   function deleteIncome(id) {
     const filteredIncomes = incomes.filter(income => income.id !== id);
@@ -85,5 +85,5 @@ export default function Incomes() {
       )}
     </div>
   )
-      }
+}
   
