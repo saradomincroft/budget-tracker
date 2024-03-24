@@ -31,24 +31,24 @@ export default function Expenses({ updateStatus }) {
       });
   }, []);
 
-//   function addExpense(expenseTitle) {
-//     fetch('http://localhost:4000/expenses', {
-//       method: 'POST',
-//       headers: {
-//         Accept: 'application/json',
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         title: expenseTitle,
-//       }),
-//     })
-//       .then(response => response.json())
-//       .then(json => {
-//         setExpenses(prev => [json, ...prev]);
-//         // setNotifMsg('A new income is successfully added!');
-//         // setNotifColor('success');
-//       });
-//   }
+  function addExpense(expenseTitle) {
+    fetch('http://localhost:4000/expenses', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: expenseTitle,
+      }),
+    })
+      .then(response => response.json())
+      .then(json => {
+        setExpenses(prev => [json, ...prev]);
+        // setNotifMsg('A new income is successfully added!');
+        // setNotifColor('success');
+      });
+  }
 
   function deleteExpense(id) {
     const filteredExpenses = expenses.filter(expense => expense.id !== id);
@@ -94,21 +94,19 @@ export default function Expenses({ updateStatus }) {
         <div className="row">
           {filteredExpenses && filteredExpenses.length > 0 ? (
             filteredExpenses.map(expense => (
-              <Card key={expense.id} className="col-lg-4 mb-4">
-                <Card.Body>
-                  <Card.Title className="card-header">
-                    {/* <Link to={`/expenses/${expense.id}`}>{expense.title}</Link> */}
-                  </Card.Title>
-                  <Card.Text>Amount: {expense.amount}</Card.Text>
-                  <Card.Text>Description: {expense.description}</Card.Text>
-                </Card.Body>
-                <button type="button" className="btn btn-danger btn-sm" onClick={() => handleDelete(expense.id)}>
-                  Delete
-                </button>
-                <button type="button" className="btn btn-primary btn-sm" onClick={() => toggleStatus(expense.id)}>
-                  {expense.status ? "Paid" : "Outstanding"}
-                </button>
-              </Card>
+              <div key={expense.id} className="col-lg-4 mb-4">
+                <Card>
+                  <Card.Body>
+                    <Card.Title className="card-header">
+                      {/* <Link to={`/expenses/${expense.id}`}>{expense.title}</Link> */}
+                    </Card.Title>
+                    <Card.Text>Amount: {expense.amount}</Card.Text>
+                    <Card.Text>Description: {expense.description}</Card.Text>
+                  </Card.Body>
+                  <button type="button" className="btn btn-danger btn-sm" onClick={() => handleDelete(expense.id)}>Delete</button>
+                  <button type="button" className="btn btn-primary btn-sm" onClick={() => toggleStatus(expense.id)}>{expense.status ? "Paid" : "Outstanding"}</button>
+                </Card>
+              </div>
             ))
           ) : (
             <p>No Expenses!</p>
@@ -118,5 +116,6 @@ export default function Expenses({ updateStatus }) {
         <p>No Expenses!</p>
       )}
     </div>
-  )
-      }  
+  );
+  
+}  
