@@ -22,7 +22,7 @@ export default function IncomesForm({ addIncome }) {
             }
        
             addIncome(newIncome);
-            // clean up set as empty after
+            
             setTitle("");
             setDescription("");
             setAmount("");
@@ -36,7 +36,6 @@ export default function IncomesForm({ addIncome }) {
     function handleBack() {
         navigate("..");
     }
-
     
 
     // useEffect( () => {

@@ -1,71 +1,114 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import { useState } from 'react';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
-export default function Expenses({ expenses, updateStatus, deleteExpense }) {
-  function toggle(expense) {
-    fetch(`http://localhost:4000/expenses/${expense.id}`, {
+export default function Expenses({ updateStatus }) {
+  const [expenses, setExpenses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [filter, setFilter] = useState("All");
+  const [filteredExpenses, setFilteredExpenses] = useState([]);
+
+  useEffect(() => {
+    if (filter === "All") {
+      setFilteredExpenses(expenses);
+    } else if (filter === "Paid") {
+      const paidExpenses = expenses.filter(expense => expense.status);
+      setFilteredExpenses(paidExpenses);
+    } else if (filter === "Outstanding") {
+      const outstandingExpenses = expenses.filter(expense => !expense.status);
+      setFilteredExpenses(outstandingExpenses);
+    }
+  }, [filter, expenses]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/expenses')
+      .then(response => response.json())
+      .then(json => {
+        setExpenses(json);
+        setIsLoading(false);
+      });
+  }, []);
+
+  function addExpense(expenseTitle) {
+    fetch('http://localhost:4000/expenses', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        status: !expense.status
-      })
+        title: expenseTitle,
+      }),
     })
-    .then(response => response.json())
-    .then(json => {
-      updateStatus(json);
-    })
-    .catch(error => console.error('Error toggling expense status:', error));
+      .then(response => response.json())
+      .then(json => {
+        setExpenses(prev => [json, ...prev]);
+        // setNotifMsg('A new income is successfully added!');
+        // setNotifColor('success');
+      });
+  }
+
+  function deleteExpense(id) {
+    const filteredExpenses = expenses.filter(expense => expense.id !== id);
+    setExpenses(filteredExpenses);
+    // setNotifMsg('The income has been deleted.');
+    // setNotifColor('danger');
   }
 
   function handleDelete(expenseId) {
-    fetch(`http://localhost:4000/expenses/${expenseId}`, {
-      method: 'DELETE'
+    fetch('http://localhost:4000/expenses/' + expenseId, {
+      method: "DELETE",
     })
-    .then(response => {
-      if (response.ok) {
-        deleteExpense(expenseId);
+      .then(response => {
+        if (response.ok) {
+          deleteExpense(expenseId);
+        }
+      });
+  }
+
+  function toggleStatus(id) {
+    const updatedExpenses = expenses.map(expense => {
+      if (expense.id === id) {
+        return { ...expense, status: !expense.status };
       }
-    })
-    .catch(error => console.error('Error deleting expense:', error));
+      return expense;
+    });
+    setExpenses(updatedExpenses);
   }
 
   return (
+    <>
     <div className="container text-center">
-      <button type="button" className="btn btn-light btn-sm m-3">
-        <Link to="/expenses/new">Add New Expense</Link>
-      </button>
-      {expenses.length > 0 ? (
-        <div className="row">
-          {expenses.map(expense => (
-            <div key={expense.id} className="col-lg-4 mb-4">
+        <button type="button" className="btn btn-light btn-sm m-3">
+          <Link to="/expenses/new">Add New Expense</Link>
+        </button>
+      </div>
+      <h3>Expenses:</h3>
+
+      <div>
+        <h5>Status:
+          <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+            <option value="All">All</option>
+            <option value="Paid">Paid</option>
+            <option value="Outstanding">Outstanding</option>
+          </select>
+        </h5>
+      </div>
+
+      {/* my-3: y axis margin */}
+      <Row className="my-3">
+        {filteredExpenses && filteredExpenses.length > 0 ? (
+          filteredExpenses.map(expense => (
+            <Col lg={4} key={expense.id} className="mb-4">
               <Card>
                 <Card.Body>
                   <Card.Title className="card-header">
                     <Link to={`/expenses/${expense.id}`}>{expense.title}</Link>
                   </Card.Title>
-                  <Card.Text>
-                    Amount: {expense.amount}
-                  </Card.Text>
-                  <Card.Text>
-                    Description: {expense.description}
-                  </Card.Text>
-                  <div className="form-check form-switch">
-                    <input
-                      type="checkbox"
-                      className="form-check-input"
-                      role="switch"
-                      id={"switch-" + expense.id}
-                      checked={expense.status}
-                      onChange={() => toggle(expense)}
-                    />
-                    <label className="form-check-label" htmlFor={"switch-" + expense.id}>
-                      {expense.status ? "Paid" : "Outstanding"}
-                    </label>
-                  </div>
+                  <Card.Text>Amount: {expense.amount}</Card.Text>
+                  <Card.Text>Description: {expense.description}</Card.Text>
                 </Card.Body>
                 <button
                   type="button"
@@ -74,13 +117,20 @@ export default function Expenses({ expenses, updateStatus, deleteExpense }) {
                 >
                   Delete
                 </button>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-sm"
+                  onClick={() => toggleStatus(expense.id)}
+                >
+                  {expense.status ? "Paid" : "Outstanding"}
+                </button>
               </Card>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>No expenses logged yet!</p>
-      )}
-    </div>
+            </Col>
+          ))
+        ) : (
+          <p>No Expenses!</p>
+        )}
+      </Row>
+    </>
   );
 }
