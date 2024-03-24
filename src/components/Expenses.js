@@ -24,31 +24,29 @@ export default function Expenses({ updateStatus }) {
 
   useEffect(() => {
     fetch('http://localhost:4000/expenses')
-      .then(response => response.json())
-      .then(json => {
-        setExpenses(json);
-        setIsLoading(false);
-      });
-  }, []);
+    .then(response => response.json())
+    .then(json => setExpenses(json))
+    .then(() => setIsLoading(false));
+}, []);
 
-  function addExpense(expenseTitle) {
-    fetch('http://localhost:4000/expenses', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: expenseTitle,
-      }),
-    })
-      .then(response => response.json())
-      .then(json => {
-        setExpenses(prev => [json, ...prev]);
-        // setNotifMsg('A new income is successfully added!');
-        // setNotifColor('success');
-      });
-  }
+//   function addExpense(expenseTitle) {
+//     fetch('http://localhost:4000/expenses', {
+//       method: 'POST',
+//       headers: {
+//         Accept: 'application/json',
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         title: expenseTitle,
+//       }),
+//     })
+//       .then(response => response.json())
+//       .then(json => {
+//         setExpenses(prev => [json, ...prev]);
+//         // setNotifMsg('A new income is successfully added!');
+//         // setNotifColor('success');
+//       });
+//   }
 
   function deleteExpense(id) {
     const filteredExpenses = expenses.filter(expense => expense.id !== id);

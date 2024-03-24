@@ -12,6 +12,7 @@ import IncomesForm from './components/IncomesForm';
 import Incomes from './components/Incomes'
 import IncomesIndex from './components/IncomesIndex';
 import IncomesPage from './components/IncomesPage';
+import NotFound from "./components/NotFound"
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
             <Route path=":expenseId" element={<ExpensesPage />} />
           </Route>
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
     </div>
