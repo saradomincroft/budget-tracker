@@ -28,21 +28,14 @@ export default function ExpensesForm({ addExpense }) {
             setAmount("");
 
             navigate('/expenses')
-    } else {
-        alert("Please enter a valid amount!")
-    }
-}
+        } else {
+            alert("Please enter a valid amount!")
+        }
+    }   
 
     function handleBack() {
         navigate("..");
     }
-
-
-    // useEffect( () => {
-    //     if (!isLoggedIn) {
-    //         navigate('/login')
-    //     }
-    // }, [isLoggedIn])
 
     return (
         <>

@@ -37,13 +37,6 @@ export default function IncomesForm({ addIncome }) {
         navigate("..");
     }
     
-
-    // useEffect( () => {
-    //     if (!isLoggedIn) {
-    //         navigate('/login')
-    //     }
-    // }, [isLoggedIn])
-
     return (
         <>
             <button type="button" class="btn btn-warning" onClick={handleBack}>Back</button>

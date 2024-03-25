@@ -29,25 +29,6 @@ export default function Expenses({ updateStatus }) {
     .then(() => setIsLoading(false));
 }, []);
 
-  // function addExpense(expenseTitle) {
-  //   fetch('http://localhost:4000/expenses', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       title: expenseTitle,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       setExpenses(prev => [json, ...prev]);
-  //       // setNotifMsg('A new income is successfully added!');
-  //       // setNotifColor('success');
-  //     });
-  // }
-
   function deleteExpense(id) {
     const filteredExpenses = expenses.filter(expense => expense.id !== id);
     setExpenses(filteredExpenses);
@@ -98,7 +79,7 @@ export default function Expenses({ updateStatus }) {
                     <Card.Title className="card-header">
                       <Link to={`/expenses/${expense.id}`}>{expense.title}</Link>
                     </Card.Title>
-                    <Card.Text>Amount: {expense.amount}</Card.Text>
+                    <Card.Text> Amount: ${expense.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Card.Text>
                     <Card.Text>Description: {expense.description}</Card.Text>
                   </Card.Body>
                   <button type="button" className="btn btn-danger btn-sm" onClick={() => handleDelete(expense.id)}>Delete</button>

@@ -50,7 +50,7 @@ export default function Incomes() {
                   <Link to={`/incomes/${income.id}`}>{income.title}</Link> 
                   </Card.Title>
                   <Card.Text>
-                    Amount: {income.amount}
+                    Amount: ${income.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </Card.Text>
                   <Card.Text>
                     Description: {income.description}
