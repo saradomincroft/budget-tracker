@@ -39,7 +39,7 @@ export default function ExpensesForm({ addExpense }) {
 
     return (
         <>
-            <button type="button" class="btn btn-warning" onClick={handleBack}>Back</button>
+            <button type="button" class="btn btn-light" onClick={handleBack}>Back</button>
             <form onSubmit={handleSubmit}>
                 <label>Title:</label> <br/>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /> <br/>
@@ -50,7 +50,7 @@ export default function ExpensesForm({ addExpense }) {
                 <label>Amount:</label> <br/>
                 <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} /> <br/>
             
-                <button type="submit" className="btn btn-success btn-sm m-4">Add New Expense</button>
+                <button type="submit" className="btn btn-info btn-sm m-4">Add New Expense</button>
             </form>
         </>
     );

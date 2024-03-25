@@ -1,10 +1,31 @@
 {
   "expenses": [
     {
-      "id": "4950",
-      "title": "New test",
-      "description": "Howdy",
-      "amount": 45.55
+      "id": "1132",
+      "title": "23",
+      "description": "232",
+      "amount": 3232,
+      "status": true
+    },
+    {
+      "id": "9c10",
+      "title": "2222",
+      "description": "2222",
+      "amount": 23232,
+      "status": true
+    },
+    {
+      "id": "1ba8",
+      "title": "2323",
+      "description": "233",
+      "amount": 2323,
+      "status": true
+    },
+    {
+      "id": "eddd",
+      "title": "wqw",
+      "description": "qwqw",
+      "amount": 1111
     }
   ],
   "incomes": [
@@ -13,12 +34,6 @@
       "title": "New income 1",
       "description": "Test Income",
       "amount": 44.55
-    },
-    {
-      "id": "662f",
-      "title": "22",
-      "description": "222",
-      "amount": 22212.2
     }
   ]
 }

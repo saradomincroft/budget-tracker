@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { IncomesTotal, ExpensesTotal, DifferenceTotal } from './Calculations';
+import { DifferenceTotal } from './Calculations';
 
 export default function DifferenceIndex() {
   const [incomes, setIncomes] = useState([]);
@@ -20,7 +20,7 @@ export default function DifferenceIndex() {
 
   return (
     <div className="text-center">
-      <h2>Balance Remaining: $<DifferenceTotal incomes={incomes} expenses={expenses} /></h2>
+      <h2>Balance: $<DifferenceTotal incomes={incomes} expenses={expenses} /></h2>
       <Outlet />
     </div>
   );

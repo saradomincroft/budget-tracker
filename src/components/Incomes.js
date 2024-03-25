@@ -57,7 +57,7 @@ export default function Incomes() {
                   </Card.Text>
                   
                 </Card.Body>
-                <button type="button" className="btn btn-danger btn-sm" onClick={() => handleDelete(income.id)}>Delete</button>
+                <button type="button" className="btn btn-secondary btn-sm" onClick={() => handleDelete(income.id)}>Delete</button>
               </Card>
             </div>
           ))}

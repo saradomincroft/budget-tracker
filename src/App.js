@@ -48,7 +48,7 @@ function App() {
   })
       .then(response => response.json())
       .then(json => {
-        setExpenses( (prev) => [json, ...prev]);
+        setExpenses(prevExpenses => [...prevExpenses, json]);
         // setNotifMsg('A new income is successfully added!');
         // setNotifColor('success');
       })

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function ExpensesTotal({ expenses }) {
   const totalExpenses = expenses.reduce((total, expense) => total + expense.amount, 0);
   return totalExpenses.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
