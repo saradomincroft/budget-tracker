@@ -6,7 +6,7 @@ export default function IncomeIndex() {
     const [incomes, setIncomes] = useState([]);
     
     useEffect(() => {
-        fetch('http://localhost:4001/incomes/')
+        fetch('http://localhost:4000/incomes/')
             .then(response => response.json())
             .then(json => setIncomes(json))
             .catch(error => console.error('Error fetching incomes:', error));

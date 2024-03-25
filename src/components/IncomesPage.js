@@ -7,7 +7,7 @@ export default function IncomesPage() {
     const [income, setIncome] = useState(null)
 
     useEffect( () => {
-        fetch('http://localhost:4001/incomes/'+incomeId)
+        fetch('http://localhost:4000/incomes/'+incomeId)
         .then(response => response.json())
         .then(json => setIncome(json));
     }, []);

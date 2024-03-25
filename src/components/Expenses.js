@@ -29,24 +29,24 @@ export default function Expenses({ updateStatus }) {
     .then(() => setIsLoading(false));
 }, []);
 
-//   function addExpense(expenseTitle) {
-//     fetch('http://localhost:4000/expenses', {
-//       method: 'POST',
-//       headers: {
-//         Accept: 'application/json',
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         title: expenseTitle,
-//       }),
-//     })
-//       .then(response => response.json())
-//       .then(json => {
-//         setExpenses(prev => [json, ...prev]);
-//         // setNotifMsg('A new income is successfully added!');
-//         // setNotifColor('success');
-//       });
-//   }
+  // function addExpense(expenseTitle) {
+  //   fetch('http://localhost:4000/expenses', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       title: expenseTitle,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       setExpenses(prev => [json, ...prev]);
+  //       // setNotifMsg('A new income is successfully added!');
+  //       // setNotifColor('success');
+  //     });
+  // }
 
   function deleteExpense(id) {
     const filteredExpenses = expenses.filter(expense => expense.id !== id);
@@ -96,7 +96,7 @@ export default function Expenses({ updateStatus }) {
                 <Card>
                   <Card.Body>
                     <Card.Title className="card-header">
-                      {/* <Link to={`/expenses/${expense.id}`}>{expense.title}</Link> */}
+                      <Link to={`/expenses/${expense.id}`}>{expense.title}</Link>
                     </Card.Title>
                     <Card.Text>Amount: {expense.amount}</Card.Text>
                     <Card.Text>Description: {expense.description}</Card.Text>

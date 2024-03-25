@@ -4,11 +4,22 @@ import ExpensesIndex from './ExpensesIndex';
 import Balance from './Balance';
 import IncomesTotal from './IncomesTotal';
 import Card from 'react-bootstrap/Card';
+import ExpensesTotal from './ExpensesTotal';
 import Container from 'react-bootstrap/Container';
 
 export default function Home() {
   const totalIncomes = IncomesTotal;
-  console.log(totalIncomes);
+  // const totalExpenses = ExpensesTotal(data);
+  // console.log(totalIncomes);
+
+  // function totalIncomes( incomes) {
+  //   return incomes.reduce((total, income) => total + parseFloat(income.amount), 0);
+  // }
+  
+  // function totalExpenses( expenses) {
+  //   return expenses.reduce((total, expense) => total + parseFloat(expense.amount), 0);
+  // }
+  
 
   return (
     <Container className="text-center">
