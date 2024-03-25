@@ -1,36 +1,24 @@
 {
   "expenses": [
     {
-      "id": "902b",
-      "title": "www",
-      "description": "www",
-      "amount": 1212
-    },
-    {
-      "id": "7f60",
-      "title": "12121",
-      "description": "1212",
-      "amount": 12122
+      "id": "4950",
+      "title": "New test",
+      "description": "Howdy",
+      "amount": 45.55
     }
   ],
   "incomes": [
-    {
-      "id": "4591",
-      "title": "111",
-      "description": "111",
-      "amount": 343252
-    },
-    {
-      "id": "e539",
-      "title": "1212",
-      "description": "1212",
-      "amount": 222
-    },
     {
       "id": "5be2",
       "title": "New test income ",
       "description": "Hi",
       "amount": 12.44
+    },
+    {
+      "id": "a8cb",
+      "title": "Hi ",
+      "description": "New one",
+      "amount": 33.44
     }
   ]
 }

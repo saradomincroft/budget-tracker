@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet } from "react-router-dom"
-import IncomesTotal from "./IncomesTotal";
+import {IncomesTotal} from "./Calculations";
 
 export default function IncomeIndex() {
     const [incomes, setIncomes] = useState([]);

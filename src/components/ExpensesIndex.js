@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import ExpensesTotal from './ExpensesTotal'; 
+import {ExpensesTotal }from './Calculations';
 
 export default function ExpensesIndex() {
     const [expenses, setExpenses] = useState([]);
@@ -13,7 +13,7 @@ export default function ExpensesIndex() {
             setIsLoading(false) 
         console.log(expenses)})
             .catch(error => console.error('Error fetching expenses:', error));
-    }, [expenses]);
+    }, []);
 
     return (
         <div className="text-center">       
