@@ -12,6 +12,21 @@ export default function IncomesForm({ addIncome }) {
     function handleSubmit(e) {
         e.preventDefault();
 
+        if (title.trim() === "") {
+            alert("Please enter a title!");
+            return;
+        }
+
+        if (description.trim() === "") {
+            alert("Please enter a description!");
+            return;
+        }
+
+        if (amount.trim() === "") {
+            alert("Please enter an amount!");
+            return;
+        }
+
         const amountFloat = parseFloat(amount);
 
         if (!isNaN(amountFloat)) {

@@ -30,13 +30,13 @@ export default function Index() {
                         </NavLink>
                     </Nav.Link>
                 </Nav>
-                <Nav>
+                {/* <Nav>
                     <Nav.Link>
                         <NavLink to="/login" className="nav-link">
                             Login
                         </NavLink>
                     </Nav.Link>
-                </Nav>
+                </Nav> */}
             </Container>
         </Navbar>
       <Outlet />
