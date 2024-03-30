@@ -13,11 +13,11 @@ export default function ExpensesIndex() {
             setIsLoading(false) 
         console.log(expenses)})
             .catch(error => console.error('Error fetching expenses:', error));
-    }, []);
+    }, [expenses]);
 
     return (
         <div className="text-center">       
-        <h2>Total Expenses: ${!isLoading ? <ExpensesTotal expenses={expenses} /> : 0 }</h2>
+        <h2>Total Expenses: $<ExpensesTotal expenses={expenses} /></h2>
         <Outlet />
         </div>
     );

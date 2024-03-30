@@ -8,24 +8,18 @@
       "status": true
     },
     {
-      "id": "9c10",
-      "title": "2222",
-      "description": "2222",
-      "amount": 23232,
+      "id": "61d7",
+      "title": "wwe",
+      "description": "wewe",
+      "amount": 111,
       "status": true
     },
     {
-      "id": "1ba8",
-      "title": "2323",
-      "description": "233",
-      "amount": 2323,
+      "id": "7c76",
+      "title": "Howdy",
+      "description": "Partner",
+      "amount": 55.55,
       "status": true
-    },
-    {
-      "id": "eddd",
-      "title": "wqw",
-      "description": "qwqw",
-      "amount": 1111
     }
   ],
   "incomes": [
@@ -33,6 +27,12 @@
       "id": "9974",
       "title": "New income 1",
       "description": "Test Income",
+      "amount": 44.55
+    },
+    {
+      "id": "9bb6",
+      "title": "Hi",
+      "description": "Hi",
       "amount": 44.55
     }
   ]
