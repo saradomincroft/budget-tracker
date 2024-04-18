@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Notif from "./Notif";
+import Notif from './Notif';
 
 
 // isLoggedIn add in props later
@@ -19,7 +19,6 @@ export default function ExpensesForm({ addExpense }) {
         e.preventDefault();
 
         if (title.trim() === "") {
-            // alert("Please enter a title!");
             setNotifMsg("Please enter a title!")
             setNotifColor("danger")
             return;
@@ -38,7 +37,7 @@ export default function ExpensesForm({ addExpense }) {
         }
 
         if (amount.trim() <= 0 ) {
-            setNotifMsg("Please enter a positive amount!");
+            setNotifMsg("Please enter a positive amount!")
             setNotifColor("danger")
             return;
         }
@@ -76,6 +75,7 @@ export default function ExpensesForm({ addExpense }) {
                 <form onSubmit={handleSubmit}>
                     <label>Title:</label> <br/>
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /> <br/>
+                    
                     <label>Description:</label> <br/>
                     <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} /> <br/>
 
