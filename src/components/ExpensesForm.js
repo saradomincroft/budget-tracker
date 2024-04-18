@@ -20,23 +20,26 @@ export default function ExpensesForm({ addExpense }) {
 
         if (title.trim() === "") {
             // alert("Please enter a title!");
-            setNotifMsg("Please enter a title")
+            setNotifMsg("Please enter a title!")
             setNotifColor("danger")
             return;
         }
 
         if (description.trim() === "") {
-            alert("Please enter a description!");
+            setNotifMsg("Please enter a description!")
+            setNotifColor("danger")
             return;
         }
 
         if (amount.trim() === "") {
-            alert("Please enter an amount!");
+            setNotifMsg("Please enter an amount!")
+            setNotifColor("danger")
             return;
         }
 
         if (amount.trim() <= 0 ) {
-            alert("Please enter a positive amount!");
+            setNotifMsg("Please enter a positive amount!");
+            setNotifColor("danger")
             return;
         }
 
@@ -57,7 +60,8 @@ export default function ExpensesForm({ addExpense }) {
 
             navigate('/expenses')
         } else {
-            alert("Please enter a valid amount!")
+            setNotifMsg("Please enter a valid amount");
+            setNotifColor("danger")
         }
     }   
 
