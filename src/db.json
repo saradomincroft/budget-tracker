@@ -1,39 +1,39 @@
 {
   "expenses": [
     {
-      "id": "1132",
-      "title": "23",
-      "description": "232",
-      "amount": 3232,
-      "status": true
-    },
-    {
-      "id": "61d7",
-      "title": "wwe",
-      "description": "wewe",
-      "amount": 111,
-      "status": true
-    },
-    {
       "id": "7c76",
       "title": "Howdy",
       "description": "Partner",
       "amount": 55.55,
       "status": true
+    },
+    {
+      "id": "b68c",
+      "title": "New expense",
+      "description": "Test",
+      "amount": 100,
+      "status": true
+    },
+    {
+      "id": "4d9c",
+      "title": "New 2",
+      "description": "He",
+      "amount": 1000,
+      "status": true
     }
   ],
   "incomes": [
-    {
-      "id": "9974",
-      "title": "New income 1",
-      "description": "Test Income",
-      "amount": 44.55
-    },
     {
       "id": "9bb6",
       "title": "Hi",
       "description": "Hi",
       "amount": 44.55
+    },
+    {
+      "id": "45d4",
+      "title": "Test",
+      "description": "Hello",
+      "amount": 4454.77
     }
   ]
 }

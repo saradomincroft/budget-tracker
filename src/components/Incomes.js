@@ -27,6 +27,10 @@ export default function Incomes() {
 
 
   function handleDelete(incomeId) {
+    const confirm = window.confirm('Are you sure you want to delete this income?');
+          if (!confirm) {
+            return; 
+          }
       fetch('http://localhost:4000/incomes/' + incomeId, {
           method: "DELETE"
     })

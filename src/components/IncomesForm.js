@@ -27,6 +27,11 @@ export default function IncomesForm({ addIncome }) {
             return;
         }
 
+        if (amount.trim() <= 0 ) {
+            alert("Please enter a positive amount!");
+            return;
+        }
+
         const amountFloat = parseFloat(amount);
 
         if (!isNaN(amountFloat)) {

@@ -28,6 +28,22 @@
   }
 }
 
+.btn-toggle {
+  /* Default style for the toggle button */
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-toggle.btn-success {
+  /* Style when expense.status is true (Paid) */
+  background-color: green;
+}
+
+.btn-toggle.btn-danger {
+  /* Style when expense.status is false (Outstanding) */
+  background-color: red;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

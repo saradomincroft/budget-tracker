@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
+import Notif from './Notif';
 
 export default function Expenses({ updateStatus }) {
     const [expenses, setExpenses] = useState([]);
+    const [notifMsg, setNotifMsg] = useState('')
     const [isLoading, setIsLoading] = useState(true);
     const [filter, setFilter] = useState('All');
     const [filteredExpenses, setFilteredExpenses] = useState([]);
@@ -22,16 +24,20 @@ export default function Expenses({ updateStatus }) {
         // setNotifColor('danger');
     }   
 
-  function handleDelete(expenseId) {
-    fetch('http://localhost:4000/expenses/' + expenseId, {
-      method: 'DELETE',
-    })
-      .then((response) => {
-        if (response.ok) {
-          deleteExpense(expenseId);
-        }
-      });
-  }
+    function handleDelete(expenseId) {
+          const confirm = window.confirm('Are you sure you want to delete this expense?');
+          if (!confirm) {
+            return; 
+          }    
+      fetch('http://localhost:4000/expenses/' + expenseId, {
+        method: 'DELETE',
+      })
+        .then((response) => {
+          if (response.ok) {
+            deleteExpense(expenseId);
+          }
+        });
+    }
 
   // FILTER/ TOGGLE (For expenses only, toggle paid/ outstanding. Filter by All, Paid, Outstanding)
   useEffect(() => {
@@ -92,7 +98,10 @@ export default function Expenses({ updateStatus }) {
             filteredExpenses.map((expense) => (
               <div key={expense.id} className="col-lg-4 mb-4">
                 <Card>
+                <button type="button" className={`btn ${expense.status ? 'btn-success' : 'btn-danger'} btn-sm `} onClick={() => toggleStatus(expense.id)}>{expense.status ? 'Paid' : 'Outstanding'}</button>
+
                   <Card.Body>
+
                     <Card.Title className="card-header">
                       <Link to={`/expenses/${expense.id}`}>{expense.title}</Link>
                     </Card.Title>
@@ -101,7 +110,6 @@ export default function Expenses({ updateStatus }) {
                     </Card.Text>
                     <Card.Text>Description: {expense.description}</Card.Text>
                   </Card.Body>
-                  <button type="button" className={`btn ${expense.status ? 'btn-success' : 'btn-danger'} btn-sm`} onClick={() => toggleStatus(expense.id)}>{expense.status ? 'Paid' : 'Outstanding'}</button>
                   <button type="button" className="btn btn-secondary btn-sm" onClick={() => handleDelete(expense.id)} >
                     Delete
                   </button>
