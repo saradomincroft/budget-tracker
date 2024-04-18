@@ -69,7 +69,7 @@ export default function IncomesForm({ addIncome }) {
     
     return (
         <Row className="my-3 justify-content-center">
-            <Col md={6}>
+            <Col md={6} className="my-3 border rounded p-3 bg-dark">
                 <button type="button" class="btn btn-light" onClick={handleBack}>Back</button>
                 <form onSubmit={handleSubmit}>
                     <label>Title:</label> <br/>
